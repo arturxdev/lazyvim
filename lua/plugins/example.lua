@@ -64,17 +64,6 @@ return {
   },
 
   -- add pyright to lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
-      },
-    },
-  },
 
   -- add tsserver and setup with typescript.nvim instead of lspconfig
   {
@@ -92,10 +81,7 @@ return {
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
-      servers = {
-        -- tsserver will be automatically installed with mason and loaded with lspconfig
-        tsserver = {},
-      },
+      servers = {},
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
@@ -113,7 +99,6 @@ return {
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
 
   -- add more treesitter parsers
   {
@@ -190,7 +175,12 @@ return {
       },
     },
   },
-
+  {
+    "garymjr/nvim-snippets",
+    opts = {
+      friendly_snippets = true,
+    },
+  },
   -- Use <tab> for completion and snippets (supertab)
   {
     "hrsh7th/nvim-cmp",
