@@ -1,0 +1,3 @@
+open all folds | zR
+close all open folds | zM
+toggles the fold at the cursor | za
